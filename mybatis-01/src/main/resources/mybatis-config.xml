@@ -29,7 +29,8 @@
         </environment>
     </environments>
 
+
     <mappers>
-        <mapper resource="com/explorer/dao/UserMapper.xml"/>
+        <mapper resource="com/example/mapper/userMapper.xml"/>
     </mappers>
 </configuration>

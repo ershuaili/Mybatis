@@ -1,4 +1,4 @@
-package com.explorer.pojo;
+package com.example.pojo;
 
 /**
  * Created by IntelliJ IDEA.

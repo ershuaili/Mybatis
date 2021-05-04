@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--命名空间-->
-<mapper namespace="com.explorer.dao.UserDao">
+<mapper namespace="com.example.mapper.UserMapper">
     <!--select查询语句，注意返回类型-->
-    <select id="getUserList" resultType="com.explorer.pojo.User">
-        select * from mybatis.user;
+    <select id="getUserList" resultType="com.example.pojo.User">
+        select * from user;
     </select>
 </mapper>

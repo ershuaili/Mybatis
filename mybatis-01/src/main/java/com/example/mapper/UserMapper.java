@@ -1,6 +1,6 @@
-package com.explorer.dao;
+package com.example.mapper;
 
-import com.explorer.pojo.User;
+import com.example.pojo.User;
 
 import java.util.List;
 
@@ -11,10 +11,10 @@ import java.util.List;
  * @version 1.0
  * @Date 2021/05/03 上午 11:54
  */
-public interface UserDao {
+public interface UserMapper {
     /**
      * 测试
      * @return user
      */
-    List<User> getUserList();
+    List<User> selectUser();
 }

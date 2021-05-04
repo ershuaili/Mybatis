@@ -1,4 +1,4 @@
-package com.explorer.utils;
+package com.example.utils;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -21,13 +21,17 @@ public class MybatisUtils {
     static {
         try {
             //获取sqlSessionFactory对象
-            String resource = "org/mybatis/example/mybatis-config.xml";
+            String resource = "mybatis-config.xml";
             InputStream inputStream = Resources.getResourceAsStream(resource);
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 获取SqlSession连接
+     */
     public static SqlSession getSqlSession(){
         return sqlSessionFactory.openSession();
     }
