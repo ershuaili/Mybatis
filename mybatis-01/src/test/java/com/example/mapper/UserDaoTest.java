@@ -15,18 +15,30 @@ import java.util.List;
  * @Date 2021/05/03 下午 3:46
  */
 public class UserDaoTest {
-    @Test
-    public void test() {
-        SqlSession session = MybatisUtils.getSqlSession();
-        //方法一:
-        //List<User> users = session.selectList("com.kuang.mapper.UserMapper.selectUser");
-        //方法二:
-        UserMapper mapper = session.getMapper(UserMapper.class);
-        List<User> users = mapper.selectUser();
 
-        for (User user : users) {
-            System.out.println(user);
+    @Test
+    public void test(){
+
+        //获得SqlSession对象
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        try{
+            //执行SQL
+            //方式一 推荐
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            List<User> userList  = userMapper .getUserList();
+
+            //方式二 了解
+//            List<User> userList = sqlSession.selectList("com.glp.dao.UserMapper.getUserList");
+
+            for (User user : userList) {
+                System.out.println(user);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            //关闭sqlSession
+            sqlSession.close();
         }
-        session.close();
     }
 }

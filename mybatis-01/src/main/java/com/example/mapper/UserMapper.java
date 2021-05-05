@@ -16,5 +16,5 @@ public interface UserMapper {
      * 测试
      * @return user
      */
-    List<User> selectUser();
+    List<User> getUserList();
 }
