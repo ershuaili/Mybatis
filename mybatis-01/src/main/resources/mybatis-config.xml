@@ -6,10 +6,11 @@
 <configuration>
     <!-- 配置文件信息 -->
     <properties resource="properties/db.properties"/>
+
     <!--选择默认环境-->
-    <environments default="test">
+    <environments default="development">
         <!--第二套环境-->
-        <environment id="test">
+        <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="${db.driver}"/>
