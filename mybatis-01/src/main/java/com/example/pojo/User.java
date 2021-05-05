@@ -1,5 +1,8 @@
 package com.example.pojo;
 
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
+
 /**
  * Created by IntelliJ IDEA.
  *
