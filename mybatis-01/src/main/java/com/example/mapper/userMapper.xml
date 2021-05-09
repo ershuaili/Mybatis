@@ -6,11 +6,11 @@
 <mapper namespace="com.example.mapper.UserMapper">
     <!--select查询语句，注意返回类型-->
     <select id="getUserList"  resultType="com.example.pojo.User">
-        select * from mybatis.user;
+        select * from user ;
     </select>
 
     <!--查询一个用户-->
-    <select id="getUser" parameterType="int" resultType="com.example.pojo.User">
-        select * from mybatis.user where id = #{id};
+    <select id="getUserById" parameterType="int" resultType="com.example.pojo.User">
+        select * from mybatis.user where UserID = #{id};
     </select>
 </mapper>
