@@ -17,15 +17,15 @@ import java.util.List;
 public class UserDaoTest {
 
     @Test
-    public void test(){
+    public void test() {
 
         //获得SqlSession对象
         SqlSession sqlSession = MybatisUtils.getSqlSession();
-        try{
+        try {
             //执行SQL
             //方式一 推荐
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            List<User> userList  = userMapper .getUserList();
+            List<User> userList = userMapper.getUserList();
 
             //方式二 了解
 //            List<User> userList = sqlSession.selectList("com.glp.dao.UserMapper.getUserList");
@@ -34,11 +34,23 @@ public class UserDaoTest {
                 System.out.println(user);
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             //关闭sqlSession
             sqlSession.close();
         }
+    }
+
+    @Test
+    public void getUserById() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        /*获取mapper*/
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        //生成对象
+        User user = mapper.getUserById(2);
+        System.out.println(user);
+
+        sqlSession.close();
     }
 }
