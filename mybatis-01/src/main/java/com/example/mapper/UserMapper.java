@@ -13,8 +13,15 @@ import java.util.List;
  */
 public interface UserMapper {
     /**
-     * 测试
+     * 查询全部用户
      * @return user
      */
     List<User> getUserList();
+
+    /**
+     * 查询一个用户
+     * @param id
+     * @return user
+     */
+    User getUserById(int id);
 }
