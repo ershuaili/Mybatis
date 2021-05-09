@@ -5,12 +5,12 @@
 <!--命名空间-->
 <mapper namespace="com.example.mapper.UserMapper">
     <!--select查询语句，注意返回类型-->
-    <select id="getUserList" resultType="com.example.pojo.User">
-        select * from user where id = '1';
+    <select id="getUserList"  resultType="com.example.pojo.User">
+        select * from mybatis.user;
     </select>
 
-    <select id="getUserList1" resultType="com.example.pojo.User">
-        select * from user where id = '3';
+    <!--查询一个用户-->
+    <select id="getUser" parameterType="int" resultType="com.example.pojo.User">
+        select * from mybatis.user where id = #{id};
     </select>
-
 </mapper>
