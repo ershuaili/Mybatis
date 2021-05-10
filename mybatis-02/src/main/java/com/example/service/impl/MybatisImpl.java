@@ -28,7 +28,6 @@ public class MybatisImpl {
             e.printStackTrace();
         }
     }
-
     /**
      * 获取SqlSession连接
      */
