@@ -3,7 +3,6 @@ package com.example.pojo;
 import com.example.entity.User;
 import com.example.mapper.UserMapper;
 import com.example.service.impl.MybatisImpl;
-import junit.framework.TestCase;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
@@ -17,33 +16,53 @@ import java.util.List;
  * @Date 2021/05/05 下午 11:23
  */
 public class UserTest {
-
+    //    查寻全部用户
     @Test
-    public void test() {
-
+    public void testSelectUser() {
         //获得SqlSession对象
-        SqlSession sqlSession = MybatisImpl.getSqlSession();
-
-        try {
-            //执行SQL
-            //方式一 推荐
-            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            List<User> userList = userMapper.getUserList();
-
-            //方式二 了解
-//            List<User> userList = sqlSession.selectList("com.glp.dao.UserMapper.getUserList");
-
-            for (User user : userList) {
-                System.out.println(user);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            //关闭sqlSession
-            sqlSession.close();
-        }
+        SqlSession session = MybatisImpl.getSqlSession();
+        UserMapper mapper = session.getMapper(UserMapper.class);
+        List<User> users = mapper.getUserList();
+        System.out.println(users);
+        //关闭sqlSession
+        session.close();
     }
 
+    //    根据Id查询用户
+    @Test
+    public void selectUserById() {
+        SqlSession session = MybatisImpl.getSqlSession();
+        UserMapper mapper = session.getMapper(UserMapper.class);
+        User user = mapper.getUserById(1);
+        System.out.println(user);
+        session.close();
+    }
 
+    //    插入用户
+    @Test
+    public void insertUser() {
+        SqlSession session = MybatisImpl.getSqlSession();
+        UserMapper mapper = session.getMapper(UserMapper.class);
+
+        User user =new User(5,"赵六","asdf");
+        int i = mapper.addUser(user);
+        System.out.println(i);
+        //注意提交事务
+        session.commit();
+        session.close();
+    }
+
+//    删除一个用户
+    @Test
+    public void deleteUser(){
+        SqlSession session = MybatisImpl.getSqlSession();
+        UserMapper mapper = session.getMapper(UserMapper.class);
+//        删除用户id为4的用户
+        int i = mapper.deleteUser(5);
+        System.out.println(i);
+//        提交事务
+        session.commit();
+//        关闭连接
+        session.close();
+    }
 }

@@ -13,8 +13,29 @@ import java.util.List;
  */
 public interface UserMapper {
     /**
-     * shuai
+     * 获取用户集合
      * @return List
      */
     List<User> getUserList();
+
+    /**
+     * 根据用户id查询用户
+     *  @param id 用户id
+     * @return user
+     */
+    User getUserById(int id);
+
+    /**
+     * 添加一个用户
+     * @param user 用户
+     * @return int
+     */
+    int addUser(User user);
+
+    /**
+     * 删除一个用户
+     * @param id 用户id
+     * @return int
+     */
+    int deleteUser(int id);
 }
