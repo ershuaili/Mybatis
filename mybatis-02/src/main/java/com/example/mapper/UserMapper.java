@@ -13,19 +13,6 @@ import java.util.List;
  */
 public interface UserMapper {
     /**
-     * 获取用户集合
-     * @return List
-     */
-    List<User> getUserList();
-
-    /**
-     * 根据用户id查询用户
-     *  @param id 用户id
-     * @return user
-     */
-    User getUserById(int id);
-
-    /**
      * 添加一个用户
      * @param user 用户
      * @return int
@@ -38,4 +25,25 @@ public interface UserMapper {
      * @return int
      */
     int deleteUser(int id);
+
+    /**
+     * 更改一个用户
+     * @param user 用户
+     * @return int
+     */
+    int updateUser(User user);
+
+    /**
+     * 获取用户集合
+     * @return List
+     */
+    List<User> getUserList();
+
+    /**
+     * 根据用户id查询用户
+     *  @param id 用户id
+     * @return user
+     */
+    User getUserById(int id);
+
 }

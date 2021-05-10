@@ -1,6 +1,7 @@
 package com.example.entity;
 
 import lombok.*;
+import org.apache.ibatis.type.Alias;
 
 /**
  * Created by IntelliJ IDEA.

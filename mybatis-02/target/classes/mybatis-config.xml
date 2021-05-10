@@ -11,6 +11,11 @@
      -->
     <properties resource="properties/db.properties"/>
 
+    <!--配置别名-->
+    <typeAliases>
+        <typeAlias type="com.example.entity.User" alias="user"/>
+    </typeAliases>
+
     <!--选择默认环境-->
     <environments default="development">
         <!--第二套环境-->

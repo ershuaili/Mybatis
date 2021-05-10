@@ -65,4 +65,17 @@ public class UserTest {
 //        关闭连接
         session.close();
     }
+
+    @Test
+    public void updateUser(){
+        SqlSession session = MybatisImpl.getSqlSession();
+        UserMapper mapper = session.getMapper(UserMapper.class);
+
+        User user = new User(5,"帅","123456");
+        int i = mapper.updateUser(user);
+        System.out.println(i);
+
+        session.commit();
+        session.close();
+    }
 }

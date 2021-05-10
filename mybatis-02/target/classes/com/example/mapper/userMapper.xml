@@ -5,23 +5,27 @@
 <!--命名空间-->
 <mapper namespace="com.example.mapper.UserMapper">
 
-    <!--select查询语句，注意返回类型-->
-
-    <select id="getUserList1"  resultType="com.example.entity.User">
-        select * from mybatis.user;
-    </select>
-
-    <!--查询一个用户-->
-    <select id="getUserById" parameterType="int" resultType="com.example.entity.User">
-        select * from mybatis.user where id = #{id};
-    </select>
     <!--添加一个用户-->
-    <insert id="addUser" parameterType="com.example.entity.User" >
+    <insert id="addUser" parameterType="user" >
         insert into user(id, name, pwd) VALUES (#{id},#{name},#{pwd})
     </insert>
     <!--删除一个用户-->
     <delete id="deleteUser" parameterType="int">
         delete from user where id =#{id}
     </delete>
+    <!--更改一个用户信息-->
+    <update id="updateUser" parameterType="user">
+        update user set name=#{name},pwd=#{pwd} where id = #{id}
+    </update>
+
+    <!--select查询语句，注意返回类型-->
+    <select id="getUserList"  resultType="user">
+        select * from mybatis.user;
+    </select>
+    <!--查询一个用户-->
+    <select id="getUserById" parameterType="int" resultType="user">
+        select * from mybatis.user where id = #{id};
+    </select>
+
 
 </mapper>
